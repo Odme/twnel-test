@@ -52,9 +52,6 @@ class UserForm extends Component {
   }
 
   render() {
-    const userData = {
-      ...this.state.userData
-    }
     return (
       <Row className="user-form-layout">
         <Col>
@@ -62,30 +59,30 @@ class UserForm extends Component {
             <Form.Group controlId="image">
               <Col>
                 <div className="form-pp-container mx-auto mt-2" onClick={this.handleImageClick}>
-                  <Image className="profile-picture" src={ userData.image !== '' ? userData.image : this.state.defaultImage} roundedCircle thumbnail />
+                  <Image className="profile-picture" src={ this.state.userData.image !== '' ? this.state.userData.image : this.state.defaultImage} roundedCircle thumbnail />
                   <Form.Control className="d-none" type="file" ref={input => this.inputElement = input} accept="image/*" onChange={this.handleImageChange}/>
                 </div>
               </Col>
             </Form.Group>
             <Form.Group controlId="firstname">
               <Form.Label>Firstname:</Form.Label>
-              <Form.Control type="text" placeholder="Type your firstname" value={userData.firstname} onChange={this.handleFieldChange} required/>
+              <Form.Control type="text" placeholder="Type your firstname" value={this.state.userData.firstname} onChange={this.handleFieldChange} required/>
             </Form.Group>
             <Form.Group controlId="lastname">
               <Form.Label>Lastname:</Form.Label>
-              <Form.Control type="text" placeholder="Type your lastname" value={userData.lastname} onChange={this.handleFieldChange} required/>
+              <Form.Control type="text" placeholder="Type your lastname" value={this.state.userData.lastname} onChange={this.handleFieldChange} required/>
             </Form.Group>
             <Form.Group controlId="phone">
               <Form.Label>Phone:</Form.Label>
-              <Form.Control type="text" placeholder="Type your phone number" value={userData.phone} onChange={this.handleFieldChange} required/>
+              <Form.Control type="text" placeholder="Type your phone number" value={this.state.userData.phone} onChange={this.handleFieldChange} required/>
             </Form.Group>
             <Form.Group controlId="aboutMyself">
               <Form.Label>Write about you:</Form.Label>
-              <Form.Control className="no-resize" as="textarea" rows="3" value={userData.aboutMyself} onChange={this.handleFieldChange} />
+              <Form.Control className="no-resize" as="textarea" rows="3" value={this.state.userData.aboutMyself} onChange={this.handleFieldChange} />
             </Form.Group>
             <Form.Group controlId="favoriteAvenger">
               <Form.Label>What's your favorite Avenger?:</Form.Label>
-              <Form.Control type="text" placeholder="Type your favorite avenger name" value={userData.favoriteAvenger} onChange={this.handleFieldChange} required/>
+              <Form.Control type="text" placeholder="Type your favorite avenger name" value={this.state.userData.favoriteAvenger} onChange={this.handleFieldChange} required/>
             </Form.Group>
             <div className="footer">
               <Container>
