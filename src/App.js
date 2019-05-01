@@ -5,7 +5,7 @@ import Profile from './containers/Profile';
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <Profile/>
     </div>
   );
