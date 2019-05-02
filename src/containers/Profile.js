@@ -17,14 +17,12 @@ class Counter extends Component {
 
   handleActiveEditClick = () => {
     this.setState({
-      ...this.state,
       editUser: true
     });
   }
 
   handleCancelEditClick = () => {
     this.setState({
-      ...this.state,
       editUser: false
     });
   }

@@ -17,20 +17,13 @@ class UserForm extends Component {
   }
 
   handleImageChange = (e) => {
-    if (this.state.image) {
-      this.setState({
-        ...this.state,
+    const file = e.target.files[0];
+    this.setState(prevState => {
+      return {
         userData: {
-          ...this.state.userData,
-          image: URL.revokeObjectURL(this.state.userData.image)
+          ...prevState.userData,
+          image: URL.createObjectURL(file)
         }
-      });
-    }
-    this.setState({
-      ...this.state,
-      userData: {
-        ...this.state.userData,
-        image: URL.createObjectURL(e.target.files[0])
       }
     });
   }
@@ -42,11 +35,13 @@ class UserForm extends Component {
   }
 
   handleFieldChange = (e) => {
-    this.setState({
-      ...this.state,
-      userData: {
-        ...this.state.userData,
-        [e.target.id]: e.target.value
+    const { id, value } = e.target;
+    this.setState(prevState => {
+      return {
+        userData: {
+          ...prevState.userData,
+          [id]: value
+        }
       }
     });
   }
